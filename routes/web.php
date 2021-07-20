@@ -37,5 +37,3 @@ Route::get('/admin/events/delete/{id}',[EventController::class,'delete']);
 
 Route::get('/demo/validate/create',[App\Http\Controllers\DemoValidateController::class, 'create']);
 Route::post('/demo/validate/store',[App\Http\Controllers\DemoValidateController::class, 'store']);
-
-

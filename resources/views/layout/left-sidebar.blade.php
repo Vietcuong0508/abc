@@ -28,9 +28,9 @@
                     <li>
                         <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fas fa-calendar-week"></i> <span class="mini-click-non">Events Manager</span></a>
                         <ul class="submenu-angle form-mini-nb-dp" aria-expanded="false">
-                            <li><a title="Basic Form Elements" href="/form"><span
+                            <li><a title="Basic Form Elements" href="/admin/events/create"><span
                                         class="mini-sub-pro"><i class="fas fa-tools"></i> Create Event</span></a></li>
-                            <li><a title="Advance Form Elements" href="/list"><span
+                            <li><a title="Advance Form Elements" href="/admin/events/list"><span
                                         class="mini-sub-pro"><i class="fas fa-table"></i> List Event</span></a></li>
                         </ul>
                     </li>

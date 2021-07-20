@@ -12,19 +12,25 @@
                         </div>
                         <div class="sparkline13-graph">
                             <div class="datatable-dashv1-list custom-datatable-overright">
-                                <div id="toolbar">
-                                    <select class="form-control dt-tb">
-                                        <option value="">Export Basic</option>
-                                        <option value="all">Export All</option>
-                                        <option value="selected">Export Selected</option>
-                                    </select>
+                                <div class="breadcome-heading">
+                                    <form id="form-filter">
+                                        <div class="col-md-3 form-group">
+                                            <input type="text" name="search" placeholder="Search..." class="search-int form-control" id="search">
+                                        </div>
+                                        <div class="form-group col-md-9">
+                                            <select class="form-control dt-tb" id="status">
+                                                <option value="">Export Basic</option>
+                                                <option value="all">Export All</option>
+                                                <option value="selected">Export Selected</option>
+                                            </select>
+                                        </div>
+                                    </form>
                                 </div>
-                                <table id="table" data-toggle="table" data-pagination="true" data-search="true"
-                                       data-show-columns="true" data-show-pagination-switch="true"
-                                       data-show-refresh="true" data-key-events="true" data-show-toggle="true"
-                                       data-resizable="true" data-cookie="true"
-                                       data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true"
-                                       data-toolbar="#toolbar">
+
+
+                                {{--data-search="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-cookie-id-table="saveId"
+                                       data-show-export="true" data-click-to-select="true" data-cookie="true" data-show-toggle="true" data-resizable="true" data-show-columns="true"--}}
+                                <table id="table" data-toggle="table" data-pagination="true" data-toolbar="#toolbar">
                                     <thead>
                                     <tr>
                                         <th>ID</th>
@@ -60,18 +66,27 @@
                                                             class="fas fa-trash"></i> Delete
                                                     </button>
                                                 </a>
-
                                             </td>
                                         </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
-                            </div>
-                            <div class="row datatables-footer">
-                                <div class="col-sm-12 col-md-8">
-                                </div>
-                                <div class="col-sm-12 col-md-4">
-                                    @include('paginate.paginate-limit',['list'=>$list]);
+                                <div class="row">
+                                    @if ($list->lastPage() > 1)
+                                        <ul class="pagination">
+                                            <li class="{{ ($list->currentPage() == 1) ? ' disabled' : '' }}">
+                                                <a href="{{ $list->url(1) }}">Previous</a>
+                                            </li>
+                                            @for ($i = 1; $i <= $list->lastPage(); $i++)
+                                                <li class="{{ ($list->currentPage() == $i) ? ' active' : '' }}">
+                                                    <a href="{{ $list->url($i) }}">{{ $i }}</a>
+                                                </li>
+                                            @endfor
+                                            <li class="{{ ($list->currentPage() == $list->lastPage()) ? ' disabled' : '' }}">
+                                                <a href="{{ $list->url($list->currentPage()+1) }}">Next</a>
+                                            </li>
+                                        </ul>
+                                    @endif
                                 </div>
                             </div>
                         </div>
