@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApartmentController;
 use App\Http\Controllers\DataHandleController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\LayoutController;
@@ -37,3 +38,10 @@ Route::get('/admin/events/delete/{id}',[EventController::class,'delete']);
 
 Route::get('/demo/validate/create',[App\Http\Controllers\DemoValidateController::class, 'create']);
 Route::post('/demo/validate/store',[App\Http\Controllers\DemoValidateController::class, 'store']);
+
+Route::get('/apartments/create',[ApartmentController::class, 'create']);
+Route::post('/apartments/create',[ApartmentController::class,'store']);
+Route::get('/apartments/list',[ApartmentController::class,'list']);
+Route::get('/apartments/edit/{id}',[ApartmentController::class,'update']);
+Route::post('/apartments/edit/{id}',[ApartmentController::class,'save']);
+Route::get('/apartments/delete/{id}',[ApartmentController::class,'delete']);
