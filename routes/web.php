@@ -45,3 +45,5 @@ Route::get('/apartments/list',[ApartmentController::class,'list']);
 Route::get('/apartments/edit/{id}',[ApartmentController::class,'update']);
 Route::post('/apartments/edit/{id}',[ApartmentController::class,'save']);
 Route::get('/apartments/delete/{id}',[ApartmentController::class,'delete']);
+
+Route::get('/library/list',[\App\Http\Controllers\LibraryController::class, 'list']);

@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             OrderDetailSeeder::class,
             EventSeeder::class,
             ApartmentSeeder::class,
+            LibrarySeeder::class,
         ]);
     }
 }
